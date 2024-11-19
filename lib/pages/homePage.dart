@@ -19,22 +19,19 @@ class HomePage extends StatelessWidget {
     return FutureBuilder<String?>(
       future: _getUsername(),
       builder: (context, snapshot) {
-        // Jika data sedang dimuat, tampilkan indikator loading
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
 
-        // Jika data selesai dimuat dan tidak ada username, kembali ke login
         if (!snapshot.hasData || snapshot.data == null) {
           Future.delayed(Duration.zero, () {
             Navigator.pushReplacementNamed(context, '/');
           });
-          return const SizedBox.shrink(); // Widget kosong untuk mencegah error
+          return const SizedBox.shrink();
         }
 
-        // Jika username ada, tampilkan halaman utama
         String username = snapshot.data!;
         return Scaffold(
           appBar: AppBar(

@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Registrasi Berhasil!')),
       );
-      Navigator.pop(context); // Back to LoginPage
+      Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Silakan isi Username dan Password')),

@@ -114,7 +114,6 @@ class DetailPage extends StatelessWidget {
     );
   }
 
-  // Format tanggal untuk tampilan yang lebih user-friendly
   String _formatDate(String? date) {
     if (date == null) return '';
     try {
@@ -125,9 +124,8 @@ class DetailPage extends StatelessWidget {
     }
   }
 
-  // Fungsi untuk membuka URL
   Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url); // Membuat objek Uri dari URL
+    final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri)) {
       throw Exception('Could not launch $url');
     }
